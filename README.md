@@ -15,3 +15,9 @@ make
 ```
 ./gtsample
 ```
+
+# テスト実行
+
+```
+make test ARGS='-V'
+```
