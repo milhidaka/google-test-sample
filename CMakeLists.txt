@@ -17,7 +17,8 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # Now simply link against gtest or gtest_main as needed. Eg
-add_executable(${PROJECT_NAME}-googletest ${CORE_SOURCES} test/test_pure.cpp)
+file(GLOB_RECURSE TEST_SOURCES "test/*.cpp")
+add_executable(${PROJECT_NAME}-googletest ${CORE_SOURCES} ${TEST_SOURCES})
 target_link_libraries(${PROJECT_NAME}-googletest gtest_main)
 add_test(NAME test COMMAND ${PROJECT_NAME}-googletest)
 enable_testing()
